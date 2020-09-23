@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crud Em Node.Js</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'/>
+ 
+</head>
+<body>
+    <br>
+  <div style="text-align:center">
+  <div class="btn-group">
+    <button type="button" class="btn btn-success">Cadastro Aluno</button>
+    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/">Home</a>
+      <a class="dropdown-item" href="/show">Cadastros</a>
+      </div>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-waring">Cadastro Professor</button>
+    <button type="button" class="btn btn-waring dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/">Home</a>
+      <a class="dropdown-item" href="/show">Cadastros</a>
+      </div>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary">Cadastro Livro</button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/">Home</a>
+      <a class="dropdown-item" href="/show">Cadastros</a>
+      </div>
+  </div>
+</div>
+    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+    <script>
+     $(function () {
+      $('.dropdown-toggle').dropdown();
+        });
+      </script>
+         <style>
+          .container {
+              margin-top: 10px;
+          }
+            </style>
+
+    <div class="container">
+        <h2>Registros</h2>
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+                <td>Nome</td>
+                <td>CPF</td>
+                <td>Sexo</td>
+                <td>Telefone</td>
+                <td>Idade</td>
+                <td>Endereco</td>
+                <td>Email</td>
+                <td>Código</td>
+                <td>Especialidade</td>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <% data.forEach(function(details) { %>
+                <tr>
+                    <td><%= details.nome %></td>
+                     <td><%= details.CPF %></td>
+                        <td><%= details.sexo %></td>
+                           <td><%= details.telefone %></td>
+                               <td><%= details.idade %></td>
+                                    <td><%= details.endereco %></td>
+                                        <td><%= details.email %></td>
+                                           <td> <%= details.codigo %></td>
+                                                <td> <%= details.especialidade %></td>
+                                                <td> <button style="margin-bottom: 10px;" type="button" class="btn btn-secondary"> <a style="color:ghostwhite; text-decoration: none;" href="/edit/<%= details._id %>">Editar</a> </button><br>
+                                                   <button type="button" class="btn btn-secondary"> <a style="color:ghostwhite; text-decoration: none;" href="/delete/<%= details._id %>">Deletar</button></a></td>
+            
+                 </tr>
+                 <% }) %>
+           
+        </tbody>
+        </table>
+        
+        <div style="text-align: center;"><button class="btn btn-secondary"><a style="color:ghostwhite; text-decoration: none;" href="/">Novo</a></button></div>
+        </div>
+</body>
+</html>
